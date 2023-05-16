@@ -8,11 +8,21 @@
 </head>
 <body>
   <h1>Taller de Matematicas con JavaScript</h1>
-  <p>
-    Por favor, abre la consola de el inspector de elementos.
-  </p>
+  
+  <label for="precio">Inserta el precio del producto:</label>
+  <input type="number" id="precio">
+
+  <label for="descuento">Inserta el porcentaje de descuento</label>
+  <input type="number" id="descuento">
+  <br>
+
+  <button onclick="calcularDescuento()">Calcular descuento</button>
+
+  <p>precio con descuento: </p>
+  <span id="final"></span>
 
 
-    <script src="./math.js"></script>
+
+  <script src="./math.js"></script>
 </body>
 </html>

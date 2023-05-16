@@ -78,3 +78,16 @@ function calcularCirculo(radio) {
 }
 
 console.groupEnd('Circle');
+
+function calcularAltura(a, b, c) {
+  // Calcula el semiperímetro
+  const s = (a + b + c) / 2;
+
+  // Calcula el área del triángulo utilizando la fórmula de Herón
+  const area = Math.sqrt(s * (s - a) * (s - b) * (s - c));
+
+  // Calcula la altura utilizando la fórmula Altura = 2 * (área del triángulo) / (base del triángulo)
+  const altura = 2 * area / a;
+
+  return altura;
+}
