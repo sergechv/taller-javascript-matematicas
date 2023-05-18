@@ -1,5 +1,5 @@
 const inputPrice = document.querySelector('#price')
-const inputDiscount = document.querySelector('#discount')
+const inputCoupon = document.querySelector('#coupon')
 const btn = document.querySelector('#calcular')
 const pResult = document.querySelector('#result')
 const descuentos = {
@@ -15,22 +15,21 @@ btn.addEventListener('click', calcularPrecioConDescuento);
 function calcularPrecioConDescuento() {
   
   const price = Number(inputPrice.value);
-  const discount = inputDiscount.value;
+  const coupon = inputCoupon.value;
   
-  console.log({price, discount})
 
-  if (!price || !discount) {
+  if (!price || !coupon) {
     pResult.innerText = 'CHANCLA por favor llena el formulario';
     return;
   }
-  if (discount > 100) {
+  if (coupon > 100) {
     pResult.innerText = 'Aja, ya quisieras no te vamos a dar dinero, PAGA!'
     return;
   }
 
-  for (let coupon in descuentos) {
-    if (discount == coupon) {
-      const newPrice = (price * (100 - descuentos[coupon])) / 100;
+  for (let coupons in descuentos) {
+    if (coupon == coupons) {
+      const newPrice = (price * (100 - descuentos[coupons])) / 100;
 
       pResult.innerText = 'El nuevo precio con descuento es $' + newPrice;
   
