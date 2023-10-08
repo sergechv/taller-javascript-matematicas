@@ -38,3 +38,28 @@ function projectionByPerson(personName) {
   
   console.log({newSalary})
 }
+
+const empresas = {}
+
+// for (persona of salarios) {
+//   for (trabajo of persona.trabajos) {
+
+//   }
+// }
+
+
+function salarioEmpresas(salarios) {
+  salarios.forEach(salario => {
+    salario.trabajos.forEach(trabajo => {
+      if (!empresas.hasOwnProperty(trabajo.empresa)) {
+        empresas[trabajo.empresa] = {}
+      }
+      if (!empresas[trabajo.empresa][trabajo.year]) {
+        empresas[trabajo.empresa][trabajo.year] = []
+      }
+      empresas[trabajo.empresa][trabajo.year].push(trabajo.salario)
+    })
+  })
+
+  console.log(empresas)
+}
