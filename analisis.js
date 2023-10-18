@@ -41,14 +41,6 @@ function projectionByPerson(personName) {
 
 const empresas = {}
 
-// for (persona of salarios) {
-//   for (trabajo of persona.trabajos) {
-
-//   }
-// }
-
-
-function salarioEmpresas(salarios) {
   salarios.forEach(salario => {
     salario.trabajos.forEach(trabajo => {
       if (!empresas.hasOwnProperty(trabajo.empresa)) {
@@ -62,4 +54,20 @@ function salarioEmpresas(salarios) {
   })
 
   console.log(empresas)
+
+  
+function medianaEmpresas(empresa, year) {
+  if (empresas[empresa]) {
+    if (empresas[empresa][year]) {
+      const salariosYear = empresas[empresa][year]
+      PlatziMath.getMedian(salariosYear)
+    } else {
+      console.warn('pues la empresa si existe pero no hay salarios de ese año')
+    }
+  } else {
+    console.warn('la empresa no existe bro')
+  }
+
+  // const salariosYear = empresas[empresa][year]
+  // PlatziMath.getMedian(salariosYear)
 }
